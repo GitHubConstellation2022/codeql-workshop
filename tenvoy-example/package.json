@@ -1,0 +1,12 @@
+{
+  "name": "tenvoy-app",
+  "version": "1.0.0",
+  "description": "Sign a message",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

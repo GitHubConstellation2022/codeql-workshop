@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "workshop-queries"
+    },
+    {
+      "path": "ql"
+    }
+  ],
+  "settings": {
+    "omnisharp.autoStart": false,
+    "codeQL.runningQueries.numberOfThreads": 4,
+    "codeQL.runningTests.numberOfThreads": 4,
+    "codeQL.telemetry.enableTelemetry": false,
+    "codeQL.runningQueries.autoSave": true,
+    "codeQL.runningQueries.debug": true,
+    "codeQL.runningQueries.maxPaths": 8,
+    "codeQL.runningQueries.maxQueries": 1,
+    "codeQL.runningTests.additionalTestArguments": [ ],
+    "codeQL.cli.executablePath": "./cli/codeql"
+  }
+}
