@@ -7,6 +7,7 @@ A starter workspace to for the GitHub Constellation India CodeQL workshop.
 1. Install [Visual Studio Code](https://code.visualstudio.com).
 1. Install the [CodeQL extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql). Quick shortcut: Ctrl+P, paste `ext install GitHub.vscode-codeql` and press enter.
 1. Clone this repository to your computer.
+1. If you are on Windows open the `constellation-codeql-starter.code-workspace` file and for the `codeQL.cli.executablePath` setting type the absolute path to the cli/codeql.exe file within your checkout, for example: `"codeQL.cli.executablePath": "C:/Users/michael/mycheckout/cli/codeql.exe"`.
 1. In VS Code, click `File` > `Open Workspace from File...` Select the file `vscode-codeql-starter.code-workspace` in your checkout of this repository.
 1. You will see several folders open in the left sidebar:
     - The `ql` folder contains the open-source CodeQL standard library for JavaScript.
