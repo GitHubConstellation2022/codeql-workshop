@@ -1,7 +1,15 @@
-# Query script
+# CodeQL Workshop for JavaScript : Improper verification of cryptographic signature in tEnvoy
 
-## Problem description
+- Analyzed language: JavaScript
+- Difficulty level: 1/3
 
+## Overview
+
+- [Problem Description](#problemstatement)
+
+## Problem Description  <a id="problemstatement"></a>
+
+Cryptographic failures climbed to the second position in the 2021 OWASP Top 10. Cryptographic failures can result in the potential exposure of sensitive data. In this workshop we will be looking at  
 [CVE-2021-32685](https://github.com/TogaTech/tEnvoy/security/advisories/GHSA-7r96-8g3x-g36m): Improper verification of a cryptographic signature in the JavaScript encryption library [tEnvoy](https://tenvoy.js.org/) (`< v7.0.3`).
 
 A function called [`verify()`](https://github.com/TogaTech/tEnvoy/blob/4e7169cfa1107077a2d55eac8b03f9fce299783e/node/tenvoy.js#L2138) returns a dict with a field named [`verified`](https://github.com/TogaTech/tEnvoy/blob/4e7169cfa1107077a2d55eac8b03f9fce299783e/node/tenvoy.js#L2150) which in turn holds `true` if the SHA-512 signature stored within parameter [`signed`](https://github.com/TogaTech/tEnvoy/blob/4e7169cfa1107077a2d55eac8b03f9fce299783e/node/tenvoy.js#L2138) is valid. A second function, [`verifyWithMessage()`](https://github.com/TogaTech/tEnvoy/blob/4e7169cfa1107077a2d55eac8b03f9fce299783e/node/tenvoy.js#L2169), uses `verify()` to check the validity of a message's signature. Unfortunately, instead of checking the `verified` field, it uses `verify()`'s returned dict. A JavaScript dict interpreted as a boolean will always evaluate to `true`, thus rendering the check ineffectual.
