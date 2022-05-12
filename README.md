@@ -6,16 +6,15 @@ A starter workspace to for the GitHub Constellation India CodeQL workshop.
 
 To make sure you can follow the workshop exercises we recommend a machine with
 
-recommended specs:
-* 4 cores
-* 16GB RAM
-* solid state disk with at least 5GB of free disk space
+* recommended specs:
+  * 4 cores
+  * 16GB RAM
+  * solid state disk with at least 5GB of free disk space
 
-minimal specs:
-* 2 cores
-* 8GB RAM
-* solid state disk with at least 5GB of free disk space
-
+* minimal specs:
+  * 2 cores
+  * 8GB RAM
+  * at least 5GB of free disk space
 
 ## Instructions
 
