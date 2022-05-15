@@ -228,7 +228,7 @@ select sink, source, sink, "always true"
     <summary>Solution</summary>
 
      ```ql
-       exists(ConditionGuardNode guard | guard.getTest() = sink.asExpr())      
+        override predicate isSink(DataFlow::Node sink) { isCondition(sink.asExpr()) }      
      ```
   </details>
 
@@ -264,9 +264,6 @@ where config.hasFlowPath(source, sink)
 select sink, source, sink, "always true"
 ```
 (2 results)
-
-## Stretch Exercise  <a id="stretchexercise"></a>
-Try using the TaintTracking library instead. Do you get different results. If so why? 
 
 
 ## What's next? <a id="whatsnext"></a>
