@@ -43,7 +43,7 @@ In the `verifyWithMessage` function:
 
 The workshop is split into several steps. You can write one query per step, or work with a single query that you refine at each step.
 
-Each step has a Hint that describe useful classes and predicates in the CodeQL standard libraries for JavaScript and keywords in CodeQL. You can explore these in your IDE using the autocomplete suggestions and jump-to-definition command.
+Each step has a hint that describe useful classes and predicates in the CodeQL standard libraries for JavaScript and keywords in CodeQL. You can explore these in your IDE using the autocomplete suggestions and jump-to-definition command.
 
 Each step has a Solution that indicates one possible answer. Note that all queries will need to begin with import `javascript`, but for simplicity this may be omitted below.
 
@@ -155,7 +155,7 @@ Each step has a Solution that indicates one possible answer. Note that all queri
   
 ## Section 3: Data Flow <a id="section3"></a>
 
-We have now identified (a) places in the program functions whose body contains an object expression with a property named `verified` (b) places in the program which conditions are known to be truthy or falsy. We now want to tie these two together to ask: does (a) ever _flow_ to (b)? 
+We have now identified (a) functions in the program whose body contains an object expression with a property named `verified` (b) places in the program where conditions are known to be truthy or falsy. We now want to tie these two together to ask: does (a) ever _flow_ to (b)? 
 
 In program analysis we call this a _data flow_ problem. Data flow helps us answer questions like: does this expression ever hold a value that originates from a particular other place in the program?
 
@@ -249,11 +249,11 @@ predicate isCondition(Expr expr) { exists(ConditionGuardNode cgn | expr = cgn.ge
 class Config extends DataFlow::Configuration {
   Config() { this = "always true" }
 
-  override predicate isSource(DataFlow::Node source) {
-    source.asExpr() =
-      any(ObjectExpr oe |
-        oe.getEnclosingFunction().getName() = "verify" and oe.getAProperty().getName() = "verified"
-      )
+  override predicate isSource(DataFlow::Node source) {         
+	  exists(ObjectExpr obj |
+               obj = source.asExpr() and
+               obj.getAProperty().getName() = "verified"
+            )
   }
 
   override predicate isSink(DataFlow::Node sink) { isCondition(sink.asExpr()) }
