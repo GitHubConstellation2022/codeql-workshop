@@ -249,11 +249,11 @@ predicate isCondition(Expr expr) { exists(ConditionGuardNode cgn | expr = cgn.ge
 class Config extends DataFlow::Configuration {
   Config() { this = "always true" }
 
-  override predicate isSource(DataFlow::Node source) {
-    source.asExpr() =
-      any(ObjectExpr oe |
-        oe.getEnclosingFunction().getName() = "verify" and oe.getAProperty().getName() = "verified"
-      )
+  override predicate isSource(DataFlow::Node source) {         
+	  exists(ObjectExpr obj |
+               obj = source.asExpr() and
+               obj.getAProperty().getName() = "verified"
+            )
   }
 
   override predicate isSink(DataFlow::Node sink) { isCondition(sink.asExpr()) }
