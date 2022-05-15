@@ -176,25 +176,22 @@ In this section we will create a data flow query by populating this template:
 import javascript
 import DataFlow::PathGraph
 
-predicate isCondition(Expr expr) { exists(ConditionGuardNode cgn | expr = cgn.getTest()) }
-
 class Config extends DataFlow::Configuration {
   Config() { this = "always true" }
 
   override predicate isSource(DataFlow::Node source) {
-    exists(ObjectExpr obj |
-      obj = source.asExpr() and
-      obj.getAProperty().getName() = "verified"
-    )
+    // fill in the body of this member predicate
   }
 
-  override predicate isSink(DataFlow::Node sink) { isCondition(sink.asExpr()) }
+  override predicate isSink(DataFlow::Node sink) {
+    // fill in the body of this member predicate
+    // you can use the isCondition() predicate we created earlier
+  }
 }
 
 from Config config, DataFlow::PathNode source, DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
+where            // fill in the where clause
 select sink, source, sink, "always true"
-
 ```
 
 
