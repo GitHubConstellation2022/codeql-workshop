@@ -32,9 +32,21 @@ To make sure you can follow the workshop exercises we recommend a machine with t
 1. Within the `Databases` section (which should appear uncollapsed by default) click `From an archive`.
 1. Give the path to the `tenvoy-db.zip` in your checkout.
 1. This should mark the database as selected in the `Databases` section.
-1. Switch to the CodeQL workspace by clicking the "two sheets button" on the sidebar.
+1. Switch to the CodeQL workspace by clicking the `Explorer` icon ("two sheets button") on the sidebar.
 1. Uncollapse the `Constellation-CodeQL-Starter` section.
 1. Uncollapse the `workshop-queries` section.
 1. Open `example.ql`.
-1. Right-click and `CodeQL:Run Query` to see whether your setup works.
+1. Right-click in the editor window and `CodeQL:Run Query` to see whether your setup works. Alternatively, right-click in the Explorer view and `CodeQL: Run Queries in Selected Files`.
 1. We will write our workshop queries into `workshop.ql`.
+
+
+## Links
+
+* [CodeQL general documentation](https://codeql.github.com/docs/)
+* [CodeQL JavaScript language guide](https://codeql.github.com/docs/codeql-language-guides/codeql-for-javascript/)
+* [Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)
+* [Creating CodeQL path queries](https://codeql.github.com/docs/writing-codeql-queries/creating-path-queries/)
+* [lgtm.com query console](https://lgtm.com/query/projects:1505912306649/lang:javascript/): It let's you run queries against thousands of open source projects from the browser.
+* [Download CodeQL bundle](https://github.com/github/codeql-action/releases)
+* [CodeQL CLI documentation](https://codeql.github.com/docs/codeql-cli/)
+* [CodeQL query repository](https://github.com/github/codeql)
