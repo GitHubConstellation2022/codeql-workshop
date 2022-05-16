@@ -32,9 +32,9 @@ To make sure you can follow the workshop exercises we recommend a machine with t
 1. Within the `Databases` section (which should appear uncollapsed by default) click `From an archive`.
 1. Give the path to the `tenvoy-db.zip` in your checkout.
 1. This should mark the database as selected in the `Databases` section.
-1. Switch to the CodeQL workspace by clicking the "two sheets button" on the sidebar.
+1. Switch to the CodeQL workspace by clicking the `Explorer` icon ("two sheets button") on the sidebar.
 1. Uncollapse the `Constellation-CodeQL-Starter` section.
 1. Uncollapse the `workshop-queries` section.
 1. Open `example.ql`.
-1. Right-click and `CodeQL:Run Query` to see whether your setup works.
+1. Right-click in the editor window and `CodeQL:Run Query` to see whether your setup works. Alternatively, right-click in the Explorer view and `CodeQL: Run Queries in Selected Files`.
 1. We will write our workshop queries into `workshop.ql`.
