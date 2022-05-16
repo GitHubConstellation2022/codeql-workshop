@@ -38,3 +38,15 @@ To make sure you can follow the workshop exercises we recommend a machine with t
 1. Open `example.ql`.
 1. Right-click in the editor window and `CodeQL:Run Query` to see whether your setup works. Alternatively, right-click in the Explorer view and `CodeQL: Run Queries in Selected Files`.
 1. We will write our workshop queries into `workshop.ql`.
+
+
+## Links
+
+* [CodeQL general documentation](https://codeql.github.com/docs/)
+* [CodeQL JavaScript language guide](https://codeql.github.com/docs/codeql-language-guides/codeql-for-javascript/)
+* [Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)
+* [Creating CodeQL path queries](https://codeql.github.com/docs/writing-codeql-queries/creating-path-queries/)
+* [lgtm.com query console](https://lgtm.com/query/projects:1505912306649/lang:javascript/): It let's you run queries against thousands of open source projects from the browser.
+* [Download CodeQL bundle](https://github.com/github/codeql-action/releases)
+* [CodeQL CLI documentation](https://codeql.github.com/docs/codeql-cli/)
+* [CodeQL query repository](https://github.com/github/codeql)
