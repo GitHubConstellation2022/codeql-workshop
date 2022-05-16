@@ -5,43 +5,67 @@ function out(s){
   process.stdout.write(s + '\n')
 }
 
+function hashFunc(m){
+  return envoy.util.bytesToHex(envoy.core.nacl.hash(envoy.util.pack(m)))
+}
+
 const { privateKey, publicKey } = new tEnvoyNaClKey(
   Buffer.from('seeeeeeeeeeeeeeeeeeeeeeeeeeecret'),
   'private'
 ).genSigningKeys()
 
-var message = Buffer.from('hello')
+out('\n------------------')
+out('ALICE - SENDING...')
+out('------------------\n')
+let message = Buffer.from('The CodeQL workshop starts tomorrow at 2pm IST. Regards, Alice')
 out('message: ' + message.toString())
 
-var signature = privateKey.sign(message).signature
-out('signature: ' + signature)
+let signature = privateKey.sign(message).signature
 
-var verifyVerified = publicKey.verify(signature).verified
+let hash = signature.split('::')[0]
+out('hash: ' + hash)
+
+let encryptedHash = signature.split('::')[1]
+out('encrypted hash: ' + encryptedHash)
+
+let verifyVerified = publicKey.verify(signature).verified
 out('verify().verified: ' + verifyVerified.toString())
 
-var verifiedWithMessage = publicKey.verifyWithMessage(signature, message)
+let verifiedWithMessage = publicKey.verifyWithMessage(signature, message)
 out('verifyWithMessage(): ' + verifiedWithMessage.toString())
 
 out('\n------------------')
-out('Modifying message and spoofing signature...')
+out('EVE - MAN IN THE MIDDLE...')
 out('------------------\n')
 
-message = Buffer.from('goodbye')
-out('message: ' + message.toString())
+process.stdin.on('data', data => {
+  out('\n------------------')
+  out('Bob - RECEIVING...')
+  out('------------------\n')
 
-signature =
-  envoy.util.bytesToHex(envoy.core.nacl.hash(envoy.util.pack(message))) +
-  '::' +
-  signature.split('::')[1]
-out('signature: ' + signature)
+  message = Buffer.from(data)
+  out('message: ' + message.toString().trim())
 
-verify = publicKey.verify(signature)
-out('verify().verified: ' + verify.verified.toString())
+  signature =
+    hashFunc(message) +
+    '::' +
+    signature.split('::')[1]
+
+  hash = signature.split('::')[0]
+  out('hash: ' + hash)
+
+  encryptedHash = signature.split('::')[1]
+  out('encrypted hash: ' + encryptedHash)
+
+  verify = publicKey.verify(signature)
+  out('verify().verified: ' + verify.verified.toString())
+
+  if (!verify){
+    out('Invalid Signature!')
+  }
+
+  verifiedWithMessage = publicKey.verifyWithMessage(signature, message)
+  out('verifyWithMessage(): ' + verifiedWithMessage.toString())
+});
 
 
-if (!verify){
-  out('Invalid Signature!')
-}
-
-verifiedWithMessage = publicKey.verifyWithMessage(signature, message)
-out('verifyWithMessage(): ' + verifiedWithMessage.toString())
