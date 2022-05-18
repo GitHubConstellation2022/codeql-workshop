@@ -15,9 +15,9 @@ To make sure you can follow the workshop exercises we recommend a machine with t
 
 ## Instructions
 
+1. Clone this repository to your computer.
 1. Install [Visual Studio Code](https://code.visualstudio.com).
 1. Install the [CodeQL extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=github.vscode-codeql). Via shortcut: Ctrl+P, paste `ext install GitHub.vscode-codeql` and press enter.
-1. Clone this repository to your computer.
 1. Open the `constellation-codeql-starter.code-workspace` in your favorite text editor and for the `codeQL.cli.executablePath` setting type the absolute path to the cli/codeql.exe file within your checkout, for example:
 
 |value|operating system|
