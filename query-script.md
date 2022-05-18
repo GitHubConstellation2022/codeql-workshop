@@ -279,5 +279,5 @@ select sink, source, sink, "always true"
 The GitHub Security Lab provided this query.
 The initial version of this workshop was written by @zbazztian and developed further for presentation by @s-samadi
 
-@hohn and @ps-apac provided valuable feedback. 
+@rvermeulen , @hohn ,and @ps-apac provided valuable feedback. 
 First version of this workshop was delivered by @s-samadi and @zbazztian
