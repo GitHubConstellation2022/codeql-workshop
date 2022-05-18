@@ -277,6 +277,3 @@ Try using the TaintTracking library instead. Do you get different results. If so
 - Read about more vulnerabilities found using CodeQL on the [GitHub Security Lab research blog](https://securitylab.github.com/research).
 - Explore the [open-source CodeQL queries and libraries](https://github.com/github/codeql), and [learn how to contribute a new query](https://github.com/github/codeql/blob/master/CONTRIBUTING.md)
 
-## Acknowledgements 
-
-TO DO
